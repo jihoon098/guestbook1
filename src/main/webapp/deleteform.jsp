@@ -2,16 +2,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
-	if(request.getParameter("password")!=null){
-		System.out.print(request.getParameter("password")+","+request.getParameter("no"));
+	String password = request.getParameter("password");
+	Long no = Long.parseLong(request.getParameter("no"));
+	
+	if(password !=null){
 		Boolean check;
-		check = new GuestbookDao().delete(Long.parseLong(request.getParameter("no")),
-				request.getParameter("password"));
+		check = new GuestbookDao().delete(no, password);
 		if(check){
 			response.sendRedirect(request.getContextPath());
 		}
 	}
-	Long no = Long.parseLong(request.getParameter("no"));
+	
 %>
 
 <html>
