@@ -11,8 +11,7 @@
 		if(check){
 			response.sendRedirect(request.getContextPath());
 		}
-	}
-	
+	}	
 %>
 
 <html>
